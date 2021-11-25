@@ -67,6 +67,10 @@ func GenerateImage(options *ImageOptions) ([]byte, error) {
 
 	output, err := cmd.CombinedOutput()
 
+	if err != nil {
+		return nil, err
+	}
+
 	trimmed := cleanupOutput(output, options.Format)
 
 	return trimmed, err
